@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+
+{% block contents %}
+    <h1>Students</h1>
+{% for student in students %}
+<ul class="list-group-item-dark">
+    <li class="list-group-item"><h5>Students Credential</h5></li>
+  
+    <li class="list-group-item list-group-item-primary">{{ student.name }}</li>
+    <li class="list-group-item list-group-item-warning">{{ student.email }}</li>
+    <li class="list-group-item list-group-item-success">{{ student.phone }}</li>
+   </ul>
+    <form action="/{{student.id}}/delete" method="post">
+        <input type="submit" value="Delete Students" class="btn btn-danger btn-m/>
+    </form>
+    <form action="/{{student.id}}/update" method="post">
+    <a href="/{{student.id}}/update" type="submit" class="btn btn-success btn-m">Edit</a>
+</form>
+</ul>
+{% endfor %}
+{% endblock %}
